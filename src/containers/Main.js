@@ -5,6 +5,8 @@ import Homepage from "../components/Homepage";
 import AuthForm from "../components/AuthForm";
 import {authUser} from "../store/actions/auth";
 import {removeError} from "../store/actions/error";
+import withAuth from "../hocs/withAuth";
+import MessageForm from "../containers/MessageForm";
 
 const Main = props => {
   // destructure props coming from mapStateToProps (at the bottom of the page)
@@ -50,6 +52,9 @@ const Main = props => {
             );
           }}
         />
+        {/* when this path is reached, a higher order component will be loaded 
+        (a function that wraps a component) */}
+        <Route path="/users/:id/messages/new" component={withAuth(MessageForm)} />
       </Switch>
     </div>
   );
