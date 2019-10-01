@@ -24,7 +24,7 @@ export function setTokenHeader(token){
 // and makes the api request
 export function apiCall(method, path, data) {
     return new Promise((resolve, reject) => {
-        return axios[method](path, data).then(res => {
+        return axios[method.toLowerCase()](path, data).then(res => {
             // axios always returns a sub object called data
             return resolve(res.data)
         }).catch(err => {

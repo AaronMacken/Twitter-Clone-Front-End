@@ -3,7 +3,6 @@ body {
 }
 
 /* Nav */
-
 .navbar {
   margin-bottom: 1rem;
 }
@@ -37,7 +36,6 @@ ul.nav.navbar-nav li {
 }
 
 /* homepage */
-
 .home-hero {
   width: 100vw;
   height: 100vh;
@@ -57,3 +55,17 @@ ul.nav.navbar-nav li {
   color: #fff;
   text-shadow: 0 0 8px #66757f;
 }
+
+#message .list-group-item{
+  display: flex;
+  align-items: flex-start;
+  padding: 7px 20px 12px;
+}
+
+#message:not(.no-hover) .list-group-item:hover {
+  background-color: #e6ecf0;
+}
+
+
+
+

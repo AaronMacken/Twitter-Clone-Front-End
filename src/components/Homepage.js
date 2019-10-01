@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import MessageTimeline from "./MessageTimeline";
 
 // destructure currentUser from props
 const Homepage = ({ currentUser }) => {
@@ -17,7 +18,7 @@ const Homepage = ({ currentUser }) => {
   }
   return (
     <div>
-      <h1>You made it!</h1>
+      <MessageTimeline profileImgUrl={currentUser.user.profileImageUrl} username={currentUser.user.userName}/>
     </div>
   );
 };
