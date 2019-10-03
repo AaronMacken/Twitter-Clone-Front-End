@@ -2,11 +2,25 @@ import { apiCall } from "../../services/api";
 import { addError } from "./error";
 import { LOAD_MESSAGES, REMOVE_MESSAGE } from "../actionTypes";
 
-// action creator
+// action creators
 export const loadMessages = messages => ({
     type: LOAD_MESSAGES,
     messages
 });
+
+export const remove = id => ({
+    type: REMOVE_MESSAGE,
+    id
+})
+
+export const removeMessage = (user_id, message_id) => {
+    return dispatch => {
+        return apiCall("delete", `/api/users/${user_id}/messages/${message_id}`)
+        .then(() => dispatch(remove(message_id)))
+        .catch(err => dispatch(addError(err.message)));
+    }
+}
+
 
 // redux thunk - function that returns a dispatch
 export const fetchMessages = () => {
@@ -38,4 +52,7 @@ export const postNewMessage = text => (dispatch, getState) => {
     .then(res => {})
     .catch(err => dispatch(addError(err.message)));
 }
+
+
+
 
